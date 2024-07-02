@@ -26,11 +26,14 @@ function PokemonList() {
   if (isError) return <div>error</div>;
 
   return (
-    <section>
-      <h1>포켓몬 도감</h1>
-      {pokemons?.map((pokemon) => (
-        <PokemonCard key={pokemon.id} pokemon={pokemon} />
-      ))}
+    <section className="flex flex-col">
+      <h1 className="text-center text-3xl font-semibold p-5">포켓몬 도감</h1>
+
+      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        {pokemons?.map((pokemon) => (
+          <PokemonCard key={pokemon.id} pokemon={pokemon} />
+        ))}
+      </ul>
     </section>
   );
 }

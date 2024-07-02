@@ -7,7 +7,7 @@ interface PokemonCardProps {
 
 function PokemonCard({ pokemon }: PokemonCardProps) {
   return (
-    <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-5 gap-y-8">
+    <li className="border border-gray m-2 p-4 rounded-lg shadow-md">
       <div className="relative aspect-[4/3]">
         <Image
           className="object-cover"
@@ -16,9 +16,9 @@ function PokemonCard({ pokemon }: PokemonCardProps) {
           fill
         />
       </div>
-      <h5>{pokemon.korean_name}</h5>
-      <p>도감번호: {pokemon.id}</p>
-    </ul>
+      <h5 className="text-xl font-semibold">{pokemon.korean_name}</h5>
+      <p className="text-sm">도감번호: {pokemon.id}</p>
+    </li>
   );
 }
 
