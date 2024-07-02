@@ -1,3 +1,9 @@
+import PokemonList from "@/components/PokemonList";
+
 export default function Home() {
-  return <main>hello</main>;
+  return (
+    <main>
+      <PokemonList />
+    </main>
+  );
 }
