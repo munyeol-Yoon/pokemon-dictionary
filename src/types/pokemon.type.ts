@@ -1,3 +1,24 @@
+export type TPokemonTypes = {
+  type: {
+    name: string;
+    korean_name: string;
+  };
+};
+
+export type TPokemonAbilities = {
+  ability: {
+    name: string;
+    korean_name: string;
+  };
+};
+
+export type TPokemonMoves = {
+  move: {
+    name: string;
+    korean_name: string;
+  };
+};
+
 export type TPokemon = {
   id: number;
   name: string;
@@ -5,7 +26,7 @@ export type TPokemon = {
   height: number;
   weight: number;
   sprites: { front_default: string };
-  types: { type: { name: string; korean_name: string } }[];
-  abilities: { ability: { name: string; korean_name: string } }[];
-  moves: { move: { name: string; korean_name: string } }[];
+  types: TPokemonTypes[];
+  abilities: TPokemonAbilities[];
+  moves: TPokemonMoves[];
 };

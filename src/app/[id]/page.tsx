@@ -1,3 +1,9 @@
+import PokemonDetailSection from "@/components/PokemonDetailSection";
+import {
+  TPokemonAbilities,
+  TPokemonMoves,
+  TPokemonTypes,
+} from "@/types/pokemon.type";
 import axios from "axios";
 import Image from "next/image";
 
@@ -17,14 +23,17 @@ async function PokemonDetail({ params }: PokemonParam) {
   console.log(pokemon);
 
   return (
-    <div>
-      <h1>{pokemon.korean_name}</h1>
-      <div>
+    <div className="border border-black flex flex-col items-center">
+      <h1 className="text-center text-3xl font-semibold p-5">
+        {pokemon.korean_name}
+      </h1>
+      <div className="relative aspect-[4/3] flex justify-center items-center p-2">
         <Image
-          className="object-cover"
+          className="border border-gray rounded-md"
           src={pokemon.sprites.front_default}
           alt={pokemon.korean_name}
-          fill
+          width={150}
+          height={150}
         />
       </div>
       <h3>이름 : {pokemon.korean_name}</h3>
@@ -33,22 +42,20 @@ async function PokemonDetail({ params }: PokemonParam) {
           키 : {pokemon.height} 무게: {pokemon.weight}
         </p>
       </div>
-      <div>
-        <p>
-          기술 :
-          {pokemon.abilities.map((pokemonAbility: any, idx: number) => (
-            <span key={idx}>{pokemonAbility.ability.korean_name}</span>
-          ))}
-        </p>
-      </div>
-      <div>
-        <p>
-          타입 :
-          {pokemon.types.map((pokemonType: any, idx: number) => (
-            <span key={idx}>{pokemonType.type.korean_name}</span>
-          ))}
-        </p>
-      </div>
+      <PokemonDetailSection
+        title="특성"
+        data={pokemon.abilities.map(
+          (ability: TPokemonAbilities) => ability.ability
+        )}
+      />
+      <PokemonDetailSection
+        title="타입"
+        data={pokemon.types.map((type: TPokemonTypes) => type.type)}
+      />
+      <PokemonDetailSection
+        title="기술"
+        data={pokemon.moves.map((move: TPokemonMoves) => move.move)}
+      />
     </div>
   );
 }
