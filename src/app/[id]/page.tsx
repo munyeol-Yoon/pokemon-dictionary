@@ -22,11 +22,11 @@ async function PokemonDetail({ params }: PokemonParam) {
   const pokemon = await getPokemonById(params.id);
 
   return (
-    <div className="border border-black flex flex-col items-center">
+    <div className="flex flex-col items-center">
       <h1 className="text-center text-3xl font-semibold p-5">
         {pokemon.korean_name}
       </h1>
-      <div className="relative aspect-[4/3] flex justify-center items-center p-2">
+      <div className="relative aspect-[4/3] flex justify-center items-center p-2 m-1">
         <Image
           className="border border-gray rounded-md"
           src={pokemon.sprites.front_default}
@@ -35,10 +35,14 @@ async function PokemonDetail({ params }: PokemonParam) {
           height={150}
         />
       </div>
-      <h3>이름 : {pokemon.korean_name}</h3>
-      <div>
+      <h3>
+        <span className="font-semibold">이름</span> : {pokemon.korean_name}
+      </h3>
+      <div className="m-1">
         <p>
-          키 : {pokemon.height} 무게: {pokemon.weight}
+          <span className="font-semibold">키</span> : {pokemon.height}
+          {"  "}
+          <span className="font-semibold">무게</span> : {pokemon.weight}
         </p>
       </div>
       <PokemonDetailSection
@@ -50,10 +54,13 @@ async function PokemonDetail({ params }: PokemonParam) {
       <PokemonDetailSection
         title="타입"
         data={pokemon.types.map((type: TPokemonTypes) => type.type)}
+        intent="secondary"
       />
       <PokemonDetailSection
         title="기술"
         data={pokemon.moves.map((move: TPokemonMoves) => move.move)}
+        intent="rounded"
+        outline
       />
     </div>
   );
