@@ -25,7 +25,7 @@ function PokemonList() {
   if (isLoading) return <div>loading</div>;
 
   if (isError) return <div>error</div>;
-  console.log(pokemons);
+
   return (
     <section className="flex flex-col">
       <h1 className="text-center text-3xl font-semibold p-5">포켓몬 도감</h1>

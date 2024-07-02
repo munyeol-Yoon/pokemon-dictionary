@@ -6,6 +6,7 @@ import {
 } from "@/types/pokemon.type";
 import axios from "axios";
 import Image from "next/image";
+import Link from "next/link";
 
 type PokemonParam = {
   params: {
@@ -62,6 +63,11 @@ async function PokemonDetail({ params }: PokemonParam) {
         intent="rounded"
         outline
       />
+      <Link href="/">
+        <button className="self-start mb-4 bg-gray-200 px-3 py-2 rounded hover:bg-gray-300">
+          뒤로가기
+        </button>
+      </Link>
     </div>
   );
 }

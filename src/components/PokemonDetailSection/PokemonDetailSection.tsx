@@ -18,7 +18,7 @@ const tag = cva(
       intent: {
         primary: "bg-green-500 text-white border-green-500",
         secondary: "bg-pink-500 text-white border-pink-500",
-        rounded: "text-white border-sky-500 rounded-2xl",
+        rounded: "text-sky-500 border-sky-500 rounded-2xl",
       },
       size: {
         small: "px-3 py-1.5 text-sm",
