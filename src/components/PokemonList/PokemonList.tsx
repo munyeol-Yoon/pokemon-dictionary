@@ -4,6 +4,7 @@ import { TPokemon } from "@/types/pokemon.type";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Link from "next/link";
+import Loading from "../Loading";
 import PokemonCard from "../PokemonCard";
 
 const fetchPokemonData = async (): Promise<TPokemon[]> => {
@@ -21,8 +22,7 @@ function PokemonList() {
     queryFn: fetchPokemonData,
   });
 
-  // TODO 로딩바 추가
-  if (isLoading) return <div>loading</div>;
+  if (isLoading) return <Loading />;
 
   if (isError) return <div>error</div>;
 
