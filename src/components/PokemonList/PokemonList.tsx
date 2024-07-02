@@ -3,6 +3,7 @@
 import { TPokemon } from "@/types/pokemon.type";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import Link from "next/link";
 import PokemonCard from "../PokemonCard";
 
 const fetchPokemonData = async (): Promise<TPokemon[]> => {
@@ -31,7 +32,9 @@ function PokemonList() {
 
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
         {pokemons?.map((pokemon) => (
-          <PokemonCard key={pokemon.id} pokemon={pokemon} />
+          <Link href={`/${pokemon.id}`} key={pokemon.id}>
+            <PokemonCard pokemon={pokemon} />
+          </Link>
         ))}
       </ul>
     </section>
