@@ -20,7 +20,6 @@ const getPokemonById = async (id: string) => {
 
 async function PokemonDetail({ params }: PokemonParam) {
   const pokemon = await getPokemonById(params.id);
-  console.log(pokemon);
 
   return (
     <div className="border border-black flex flex-col items-center">
