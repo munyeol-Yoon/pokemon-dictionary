@@ -20,6 +20,7 @@ function PokemonList() {
   } = useQuery<TPokemon[]>({
     queryKey: ["pokemonList"],
     queryFn: fetchPokemonData,
+    staleTime: Infinity,
   });
 
   if (isLoading) return <Loading />;
