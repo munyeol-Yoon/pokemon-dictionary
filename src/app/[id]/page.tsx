@@ -34,6 +34,7 @@ async function PokemonDetail({ params }: PokemonParam) {
           alt={pokemon.korean_name}
           width={150}
           height={150}
+          priority
         />
       </div>
       <h3>

@@ -13,7 +13,9 @@ function PokemonCard({ pokemon }: PokemonCardProps) {
           className="object-cover"
           src={pokemon.sprites.front_default}
           alt={pokemon.korean_name}
+          sizes="100%"
           fill
+          priority
         />
       </div>
       <h5 className="text-xl font-semibold">{pokemon.korean_name}</h5>
